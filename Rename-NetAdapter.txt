@@ -1,0 +1,10 @@
+Start-BitsTransfer -Source "https://download.zerotier.com/dist/ZeroTier%20One.msi" -Destination "c:\users\default\ZerotierOne.msi"
+MsiExec.exe /i "c:\users\default\ZerotierOne.msi" /qn
+Rename-NetAdapter -Name "Zerotier*" -NewName "DairyComp"
+Set-NetConnectionProfile -InterfaceAlias Ethernet* -NetworkCategory "Private"
+
+Rename-NetAdapter -Name "Zerotier*" -NewName "DairyComp"
+
+Set-NetConnectionProfile -InterfaceAlias Ethernet -NetworkCategory "Private"
+
+Register-ScheduledTast -TaskName Reboot -Action
